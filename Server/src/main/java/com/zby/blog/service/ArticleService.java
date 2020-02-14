@@ -151,6 +151,7 @@ public class ArticleService {
         articleIntro.setId(article.getId());
         articleIntro.setArticle_id(article.getArticle_id());
         articleIntro.setIntro(article.getIntro());
+        articleIntro.setUid(article.getUid());
 
         articleIntroMapper.insert(articleIntro);
         return true;
@@ -167,7 +168,10 @@ public class ArticleService {
         ArticleIntro articleIntro = articleIntroMapper.selectByPrimaryKey(id);
         return articleIntro;
     }
-
+    public List<ArticleIntro> getArticleIntroByUid(int uid)
+    {
+        return articleIntroMapper.getArticleIntroByUid(uid);
+    }
 //    自动生成Article_id！
     public int calculateArticleIdByUid(int uid)
     {

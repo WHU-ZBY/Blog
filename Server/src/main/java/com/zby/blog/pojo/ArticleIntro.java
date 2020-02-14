@@ -4,6 +4,7 @@ public class ArticleIntro {
     private long id;
     private int article_id;
     private String intro;
+    private int uid;
 
     public long getId() {
         return id;
@@ -27,5 +28,13 @@ public class ArticleIntro {
 
     public void setIntro(String intro) {
         this.intro = intro;
+    }
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 }

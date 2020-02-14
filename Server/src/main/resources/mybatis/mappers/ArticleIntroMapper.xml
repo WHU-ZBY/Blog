@@ -4,7 +4,7 @@
 <mapper namespace="com.zby.blog.dao.ArticleIntroMapper">
     <insert id="insert" parameterType="com.zby.blog.pojo.ArticleIntro"
             useGeneratedKeys="true" keyProperty="id" >
-      insert into article_intro(id,article_id,intro) values (#{id},#{article_id},#{intro})
+      insert into article_intro(id,article_id,intro,uid) values (#{id},#{article_id},#{intro},#{uid})
     </insert>
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.zby.blog.pojo.ArticleIntro">
         select * from article_intro where id = #{id}
@@ -12,4 +12,7 @@
     <delete id="deleteByPrimaryKey" parameterType="com.zby.blog.pojo.ArticleIntro">
         delete from article_intro where id = #{id}
     </delete>
+    <select id="getArticleIntroByUid" resultType="com.zby.blog.pojo.ArticleIntro">
+        select * from article_intro where uid = #{uid}
+    </select>
 </mapper>

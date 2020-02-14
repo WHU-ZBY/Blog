@@ -2,6 +2,7 @@ package com.zby.blog.controller;
 
 import com.zby.blog.pojo.Article;
 import com.zby.blog.pojo.ArticleInfo;
+import com.zby.blog.pojo.ArticleIntro;
 import com.zby.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,6 +78,12 @@ public class ArticleController {
         }
 
     }
-
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/getArticleIntroByUid")
+    public List<ArticleIntro> getArticleIntroByUid(int uid)
+    {
+        return articleService.getArticleIntroByUid(uid);
+    }
 
 }
