@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zby.blog.dao.ArticleInfoMapper">
+    <insert id="insert" parameterType="com.zby.blog.pojo.ArticleInfo"
+            useGeneratedKeys="true" keyProperty="id" >
+      insert into article_info(article_id,uid,title,is_top,traffic) values (#{article_id},#{uid},#{title},#{is_top},#{traffic})
+    </insert>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.zby.blog.pojo.ArticleInfo">
+        select * from article_info where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.zby.blog.pojo.ArticleInfo">
+        delete from article_info where id = #{id}
+    </delete>
+    <select id="selectArticleByUid" resultType="com.zby.blog.pojo.ArticleInfo" >
+        select * from article_info where uid = #{uid}
+    </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zby.blog.dao.ArticleCommentMapper">
+    <insert id="insert" parameterType="com.zby.blog.pojo.ArticleComment"
+            useGeneratedKeys="true" keyProperty="id">
+      insert into article_comment(article_id,comment_id) values (#{article_id},#{comment_id})
+    </insert>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.zby.blog.pojo.ArticleComment">
+        select * from article_comment where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.zby.blog.pojo.ArticleComment">
+        delete from article_comment where id = #{id}
+    </delete>
+    <update id="updateByPrimaryKey" parameterType="com.zby.blog.pojo.ArticleComment" keyProperty="id">
+        update article_comment set article_id=#{article_id} where id=#{id}
+    </update>
+
+</mapper>

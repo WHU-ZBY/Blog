@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zby.blog.dao.UserArticleCountMapper">
+
+    <select id="selectUserArticleCountByUid" resultType="int">
+        select article_count from user_article where uid=#{uid}
+    </select>
+
+    <insert id="insertUserArticleCount" parameterType="com.zby.blog.pojo.UserArticle">
+      insert into user_article(uid,article_count) values (#{uid},#{article_count})
+    </insert>
+    <update id="addUserArticleCount"  keyProperty="uid">
+        update user_article set article_count=#{article_count} where uid=#{uid}
+    </update>
+    <update id="deleteUserArticleCount"  keyProperty="uid">
+        update user_article set article_count=#{article_count} where uid=#{uid}
+    </update>
+</mapper>

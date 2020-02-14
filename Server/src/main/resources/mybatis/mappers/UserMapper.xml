@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zby.blog.dao.UserMapper">
+
+    <select id="getUserByPrimaryKey" resultType="com.zby.blog.pojo.User">
+      select * from user where uid=#{uid}
+    </select>
+
+    <select id="isNickNameRepeat" resultType="com.zby.blog.pojo.User">
+        select * from user where nick_name=#{nick_name}
+    </select>
+
+    <insert id="insertUser" parameterType="com.zby.blog.pojo.User"
+            useGeneratedKeys="true" keyProperty="uid">
+      insert into user(nick_name,password,email,avatar) values (#{nick_name},#{password},#{email},#{avatar})
+
+    </insert>
+</mapper>

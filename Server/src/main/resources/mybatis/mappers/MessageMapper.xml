@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zby.blog.dao.MessageMapper">
+    <insert id="insert" parameterType="com.zby.blog.pojo.Message"
+            useGeneratedKeys="true" keyProperty="id" >
+      insert into message(uid,to_uid,content,time) values (#{uid},#{to_uid},#{content},#{time})
+    </insert>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.zby.blog.pojo.Message">
+        select * from message where id = #{id}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="com.zby.blog.pojo.Message">
+        delete from message where id = #{id}
+    </delete>
+    <select id="selectMessageByUid" resultType="com.zby.blog.pojo.Message" parameterType="int">
+        select * from message where uid = #{uid}
+    </select>
+</mapper>

@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: mybatis
+
+  security:
+    user:
+      password: 123456
+      name: user
+      roles: admin
+
+server:
+  port: 8080
+
