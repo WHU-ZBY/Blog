@@ -1,10 +1,22 @@
 package com.zby.blog.pojo;
 
+import java.util.Date;
+
 public class ArticleIntro {
     private long id;
-    private int article_id;
+    private int articleId;
     private String intro;
     private int uid;
+    private String title;
+    private Date createDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     public long getId() {
         return id;
@@ -15,11 +27,11 @@ public class ArticleIntro {
     }
 
     public int getArticle_id() {
-        return article_id;
+        return articleId;
     }
 
     public void setArticle_id(int article_id) {
-        this.article_id = article_id;
+        this.articleId = article_id;
     }
 
     public String getIntro() {
@@ -36,5 +48,13 @@ public class ArticleIntro {
 
     public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

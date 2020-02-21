@@ -9,7 +9,7 @@ public interface ArticleContentMapper {
 
     int insert(ArticleContent record);
 
-    ArticleContent selectByPrimaryKey(Long id);
+    ArticleContent selectByPrimaryKey(int articleId);
 
     int updateByPrimaryKey(ArticleContent record);
 }

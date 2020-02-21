@@ -6,8 +6,8 @@
             useGeneratedKeys="true" keyProperty="id">
       insert into article_content(content,article_id) values (#{content},#{article_id})
     </insert>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.zby.blog.pojo.ArticleContent">
-        select * from article_content where id = #{id}
+    <select id="selectByPrimaryKey" resultType="com.zby.blog.pojo.ArticleContent">
+        select * from article_content where article_id = #{articleId}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="com.zby.blog.pojo.ArticleContent">
         delete from article_content where id = #{id}

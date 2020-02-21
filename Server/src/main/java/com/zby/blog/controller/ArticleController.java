@@ -1,6 +1,7 @@
 package com.zby.blog.controller;
 
 import com.zby.blog.pojo.Article;
+import com.zby.blog.pojo.ArticleContent;
 import com.zby.blog.pojo.ArticleInfo;
 import com.zby.blog.pojo.ArticleIntro;
 import com.zby.blog.service.ArticleService;
@@ -63,11 +64,6 @@ public class ArticleController {
     public List<ArticleInfo> getAllArticleByUid(int uid)
     {
         List<ArticleInfo> list = articleService.selectArticleByUid(uid);
-
-        for (int i = 0; i< list.size();i++)
-        {
-            System.out.println(list.get(i).getArticle_id());
-        }
         if (list.size()==0)
         {
             System.out.println("没有发现任何文章");
@@ -86,4 +82,21 @@ public class ArticleController {
         return articleService.getArticleIntroByUid(uid);
     }
 
+    @CrossOrigin
+    @ResponseBody
+    @RequestMapping(value = "/getArticleByArticleId")
+    public Article getArticleByArticleId(int articleId)
+    {
+        ArticleIntro articleIntro = articleService.getArticleIntroByArticleId(articleId);
+        ArticleContent articleContent = articleService.selectArticleContent(articleId);
+        Article article = new Article();
+        article.setArticle_id(articleId);
+        article.setIntro(articleIntro.getIntro());
+        article.setContent(articleContent.getContent());
+        article.setTitle(articleIntro.getTitle());
+        article.setUid(articleIntro.getUid());
+        article.setCreateDate(articleIntro.getCreateDate());
+        return article;
+
+    }
 }

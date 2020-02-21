@@ -1,5 +1,7 @@
 package com.zby.blog.pojo;
 
+import java.util.Date;
+
 public class Article {
     private long id;
     private int article_id;
@@ -9,6 +11,16 @@ public class Article {
     private String intro;
     private String content;
     private String picture_url;
+    private Date createDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     public long getId() {
         return id;
     }

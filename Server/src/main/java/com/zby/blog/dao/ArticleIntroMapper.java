@@ -12,4 +12,6 @@ public interface ArticleIntroMapper {
     ArticleIntro selectByPrimaryKey(Long id);
 
     List<ArticleIntro> getArticleIntroByUid(int uid);
+
+    ArticleIntro getArticleIntroByArticleId(int articleId);
 }

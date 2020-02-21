@@ -101,9 +101,9 @@ public class ArticleService {
     }
 
 
-    public ArticleContent selectArticleContent(Long id)
+    public ArticleContent selectArticleContent(int articleId)
     {
-        ArticleContent articleContent = articleContentMapper.selectByPrimaryKey(id);
+        ArticleContent articleContent = articleContentMapper.selectByPrimaryKey(articleId);
         return articleContent;
     }
 
@@ -152,6 +152,7 @@ public class ArticleService {
         articleIntro.setArticle_id(article.getArticle_id());
         articleIntro.setIntro(article.getIntro());
         articleIntro.setUid(article.getUid());
+        articleIntro.setTitle(article.getTitle());
 
         articleIntroMapper.insert(articleIntro);
         return true;
@@ -171,6 +172,11 @@ public class ArticleService {
     public List<ArticleIntro> getArticleIntroByUid(int uid)
     {
         return articleIntroMapper.getArticleIntroByUid(uid);
+    }
+
+    public ArticleIntro getArticleIntroByArticleId(int articleId)
+    {
+        return articleIntroMapper.getArticleIntroByArticleId(articleId);
     }
 //    自动生成Article_id！
     public int calculateArticleIdByUid(int uid)

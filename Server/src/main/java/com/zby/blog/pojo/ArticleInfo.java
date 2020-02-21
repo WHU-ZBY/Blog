@@ -2,7 +2,7 @@ package com.zby.blog.pojo;
 
 public class ArticleInfo {
     private long id;
-    private int article_id;
+    private int articleId;
     private String title;
     private int uid;
     private boolean is_top;
@@ -17,11 +17,11 @@ public class ArticleInfo {
     }
 
     public int getArticle_id() {
-        return article_id;
+        return articleId;
     }
 
     public void setArticle_id(int article_id) {
-        this.article_id = article_id;
+        this.articleId = article_id;
     }
 
     public String getTitle() {
